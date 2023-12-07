@@ -30,7 +30,7 @@
 import math
 import numpy as np
 
-import exqalibur as xq
+#import exqalibur as xq
 from ._abstract_backends import AProbAmpliBackend
 from perceval.utils import BasicState
 
@@ -61,4 +61,4 @@ class NaiveBackend(AProbAmpliBackend):
                         u_st[rowidx, colidx] = self._umat[ok, ik]
                         rowidx += 1
                 colidx += 1
-        return xq.permanent_cx(u_st, n_threads=1)/math.sqrt(p)
+        return np.permanent_cx(u_st, n_threads=1)/math.sqrt(p)

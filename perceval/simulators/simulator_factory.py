@@ -34,7 +34,7 @@ from .loss_simulator import LossSimulator
 from .polarization_simulator import PolarizationSimulator
 from ._simulator_utils import _unitary_components_to_circuit
 from perceval.components import ACircuit, TD, LC, Processor
-from perceval.backends import ABackend, SLOSBackend, NaiveBackend, BACKEND_LIST
+from perceval.backends import ABackend, NaiveBackend, BACKEND_LIST
 
 from typing import List, Union
 
@@ -88,7 +88,7 @@ class SimulatorFactory:
                     sim_polarization = cp.requires_polarization
 
         if backend is None:
-            backend = SLOSBackend()  # The default is SLOS
+            backend = None # nop
         if isinstance(backend, str):
             if backend in BACKEND_LIST:
                 backend = BACKEND_LIST[backend](**kwargs)  # Create an instance of the backend

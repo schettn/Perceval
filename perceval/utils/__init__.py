@@ -44,4 +44,10 @@ from .stategenerator import StateGenerator
 from ._enums import Encoding, InterferometerShape, FileFormat
 from .persistent_data import PersistentData
 from .metadata import PMetadata
-from exqalibur import Annotation  # Used to provide the Annotation class to the perceval root namespace
+#from exqalibur import Annotation  # Used to provide the Annotation class to the perceval root namespace
+
+class MockAnnotation:
+    def __init__(self, **foo):
+        pass
+
+Annotation = MockAnnotation
